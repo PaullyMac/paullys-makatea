@@ -1,0 +1,8 @@
+# Ignore specific files
+Jakes-Coffee-Shop.pdf
+RULES.md
+notes.txt
+
+# Common ignored files
+.DS_Store
+Thumbs.db

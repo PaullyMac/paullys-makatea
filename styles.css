@@ -1,0 +1,1008 @@
+/* Body layout with fixed height */
+body {
+  background-color: #ffffcc;
+  color: #330000;
+  font-family: Verdana, sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* No scrollbar on main page */
+}
+
+/* Enhanced header with texture and refined details */
+header {
+  background-color: #ccaa66; /* Maintaining the original color */
+  background-image: linear-gradient(to bottom, #d5b672, #ccaa66);
+  text-align: center;
+  padding: 1.9em; /* Preserving original size */
+  position: relative;
+  box-shadow: 0 2px 8px rgba(51, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+header h1 {
+  margin: 0;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(91, 70, 29, 0.2);
+  letter-spacing: 0.03em;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+/* Enhanced footer with matching details */
+footer {
+  background-color: #ccaa66; /* Maintaining the original color */
+  background-image: linear-gradient(to top, #d5b672, #ccaa66);
+  text-align: center;
+  padding: 1.9em; /* Preserving original size */
+  width: 100%;
+  position: relative;
+  box-shadow: 0 -2px 8px rgba(51, 0, 0, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+footer p {
+  margin: 0;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+/* Content area fills available space */
+#content {
+  display: flex;
+  flex: 1;
+  overflow: hidden; /* No scrollbar */
+}
+
+/* Modern Navigation Styling - with equal padding */
+nav {
+  background-color: #E8D882;
+  padding: 1.2em 0.8em;
+  width: 20%;
+  box-sizing: border-box;
+  border-radius: 0 0 8px 0;
+  box-shadow: 0 2px 5px rgba(204, 170, 102, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+nav ul li {
+  margin: 0.8em 0; /* Increased vertical spacing */
+}
+
+/* Larger navigation text with adjusted spacing */
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: #330000;
+  padding: 0.6em 1.1em; /* Slightly increased padding */
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-bottom: 2px solid transparent;
+  font-size: 1.15em; /* Increased font size */
+  letter-spacing: 0.02em; /* Slightly improved readability */
+}
+
+/* Active state styling */
+nav ul li a.active {
+  background-color: #ccaa66;
+  color: #330000;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #8b6b2b;
+}
+
+/* Modern animated underline effect */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #8b6b2b;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Keep active link underlined */
+nav ul li a.active::after {
+  width: 100%;
+}
+
+/* Main content area with fixed height */
+main {
+  background-color: #f1e8b0;
+  padding: 1em;
+  width: 80%;
+  box-sizing: border-box;
+  overflow-y: auto; /* Default scrollbar behavior */
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+/* Ensure main content has sufficient space */
+main.home-background {
+  min-height: 100%; /* Ensure main takes full height available */
+  overflow-y: hidden; /* Remove vertical scrollbar for home section */
+}
+
+nav ul li a:hover {
+  background-color: #330000;
+  color: #ffffff;
+  border-bottom: 2px solid #330000;
+}
+
+/* All sections hidden by default */
+main > section {
+  display: none;
+  height: 100%;
+  overflow: hidden; /* Default no scrollbar */
+}
+
+/* Optimized music section with even larger elements */
+#music {
+  max-height: calc(100vh - 140px); /* Slightly more space */
+  overflow-y: hidden;
+  padding-right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Larger spacing */
+#music h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.6em; /* Larger heading */
+}
+
+#music p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.05em; /* Larger text */
+}
+
+/* Music container with increased size */
+.music-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px; /* Slightly larger gap */
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* Enlarged video player size */
+#player-container {
+  flex: 1.2; /* Give video slightly more space */
+  min-width: 360px; /* Increased minimum width */
+  margin: 0;
+}
+
+#video-player {
+  width: 100%;
+  max-width: 590px; /* Enlarged maximum width */
+  height: auto;
+  aspect-ratio: 16/9;
+  max-height: 330px; /* Enlarged maximum height */
+  background-color: #000;
+  border-radius: 5px;
+}
+
+/* Enlarged playlist size */
+#playlist-container {
+  flex: 1;
+  min-width: 290px; /* Slightly wider minimum */
+  max-height: 330px; /* Matched to enlarged video height */
+}
+
+#playlist-container h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.25em; /* Slightly larger heading */
+}
+
+#video-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #e6dfa5;
+  border-radius: 5px;
+  overflow-y: auto;
+  max-height: 275px; /* Enlarged to show more playlist items */
+}
+
+#video-list li {
+  border-bottom: 1px solid #ccaa66;
+}
+
+#video-list li:last-child {
+  border-bottom: none;
+}
+
+#video-list a {
+  display: block;
+  padding: 10px 14px; /* Larger padding */
+  color: #330000;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-size: 1em; /* Larger text */
+}
+
+#video-list a:hover {
+  background-color: #ccaa66;
+  color: #fff;
+}
+
+#video-list a.active {
+  background-color: #ccaa66;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Larger audio player */
+.audio-player {
+  margin-top: 12px;
+  padding: 10px;
+  background-color: #e6dfa5;
+  border-radius: 6px;
+}
+
+.audio-player h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em; /* Larger heading */
+}
+
+/* Larger controls */
+.audio-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#play-pause, #shuffle-toggle {
+  padding: 8px 12px; /* Larger padding */
+  background-color: #ccaa66;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em; /* Larger text */
+}
+
+#play-pause:hover, #shuffle-toggle:hover {
+  background-color: #b3964d;
+}
+
+.track-info {
+  flex: 1;
+  font-size: 1em; /* Larger text */
+  font-weight: 500;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input[type="range"] {
+  width: 120px; /* Wider slider */
+}
+
+/* Make playback controls layout better when narrow */
+@media (max-width: 500px) {
+  .audio-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .track-info {
+    margin: 5px 0;
+  }
+}
+
+/* Home section styling - no scrollbar */
+#home {
+  position: relative;
+  padding: 0; /* Removed padding completely */
+  min-height: auto; /* Remove min-height constraint */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: visible; /* Explicitly prevent scrollbar */
+}
+
+/* Remove the background image pseudo-element completely */
+#home::before {
+  content: none; /* Disable the pseudo-element */
+}
+
+/* Keep content elements but remove unnecessary z-index and text shadow */
+#home h2, #home p {
+  position: relative;
+  text-align: center;
+}
+
+/* Main heading styling - further reduced top margin */
+#home h2 {
+  font-family: 'Brush Script MT', 'Palatino Linotype', cursive;
+  font-size: 3em;
+  color: #8b6b2b;
+  text-align: center;
+  margin: 0.15em 0 0.5em; /* Further reduced top margin from 0.4em to 0.15em */
+}
+
+/* Introduction banner - adjust for no parent padding */
+.intro-banner {
+  background-color: rgba(230, 223, 165, 0.7);
+  border-radius: 8px;
+  padding: 1em;
+  margin: 0.6em auto 1.5em; /* Adjusted top margin to maintain proper spacing with heading */
+  max-width: 80%;
+  text-align: center;
+  border-left: 4px solid #ccaa66;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Content panels layout - removed unnecessary z-index */
+.home-panels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 0; /* Adjusted margin now that CTA is removed */
+  position: relative;
+}
+
+/* Individual panels */
+.about-panel, .mission-panel, .contact-panel {
+  flex: 1;
+  min-width: 250px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1.2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(139, 107, 43, 0.15);
+}
+
+.about-panel h3, .mission-panel h3, .contact-panel h3 {
+  color: #8b6b2b;
+  margin-top: 0;
+  padding-bottom: 0.5em;
+  border-bottom: 1px dashed #ccaa66;
+}
+
+/* Contact styling */
+.contact-panel address {
+  font-style: normal;
+  line-height: 1.5;
+}
+
+/* Email link styling - make it appear like normal text */
+.email-link {
+  color: inherit; /* Use the same color as parent text */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.email-link:hover {
+  color: inherit; /* Keep the same color on hover */
+  text-decoration: none; /* Ensure no underline appears on hover */
+}
+
+.social-links {
+  margin-top: 1em;
+  display: flex;
+  gap: 10px;
+}
+
+.social-icon {
+  display: inline-block;
+  padding: 5px 12px;
+  background-color: #ccaa66;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #8b6b2b;
+  transform: translateY(-2px);
+}
+
+/* Logo at bottom of navigation - reduced size */
+.nav-logo {
+  margin: 25px auto 10px;
+  text-align: center;
+  max-width: 70%; /* Reduced from 85% */
+  padding: 8px 10px 10px 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-logo img {
+  max-width: 100%;
+  height: auto;
+  max-height: 60px; /* Added height limitation */
+  filter: drop-shadow(0 2px 4px rgba(51, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+/* Subtle hover effect */
+.nav-logo:hover {
+  background-color: rgba(204, 170, 102, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Make logo link look proper */
+.nav-logo a {
+  display: block;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+/* Ensure hover effect works with the link */
+.nav-logo a:hover img {
+  transform: scale(1.05);
+}
+
+/* Tagline styling for the logo */
+.nav-logo .tagline {
+  font-family: 'Brush Script MT', 'Palatino Linotype', cursive;
+  color: #8b6b2b;
+  font-size: 1.2em; /* Increased from 0.95em */
+  margin-top: 5px;
+  letter-spacing: 0.04em; /* Slightly increased for better readability */
+  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  font-weight: normal;
+  height: auto;
+  line-height: normal;
+}
+
+/* Add subtle animation on hover */
+.nav-logo:hover .tagline {
+  color: #654d1d;
+}
+
+/* Products section styling */
+#products {
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Business model paragraph styling */
+#products > p {
+  margin: 1em 0 1.5em;
+  line-height: 1.5;
+  max-width: 85%;
+  padding: 1px 13px;
+  background-color: rgba(230, 223, 165, 0.5);
+  border-radius: 5px;
+  border-left: 4px solid #ccaa66;
+}
+
+/* Grid layout for products - changed from 4 to 3 columns */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 20px; /* Increased row gap to 30px */
+  padding: 10px 0 20px;
+  list-style: none;
+  margin: 0;
+}
+
+/* Product card styling using <figure> */
+.product-card {
+  background-color: #e6dfa5;
+  border-radius: 8px;
+  padding: 20px; /* Increased padding */
+  box-shadow: 0 2px 4px rgba(51, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect for product cards */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(204, 170, 102, 0.3);
+  background-color: #efe8bd;
+}
+
+/* Figure inside product cards */
+.product-card figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Product images */
+.product-card img {
+  width: 100%;
+  height: auto;
+  max-height: 240px; /* Increased from 200px */
+  object-fit: contain;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+  margin-bottom: 15px; /* Increased from 10px */
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Product caption styling */
+figcaption {
+  font-family: Verdana, sans-serif;
+  font-size: 0.85em;
+  color: #330000;
+  text-align: center;
+  margin: 0 0 5px 0; /* Added bottom margin to create small space before price */
+  height: 2.6em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Product price styling in grid - adjusted to be closer to figcaption */
+.product-price {
+  text-align: center;
+  font-weight: bold;
+  color: #8b6b2b;
+  margin: 0; /* Removed top margin */
+  padding: 3px 0; /* Reduced padding */
+  font-size: 1em; /* Slightly smaller */
+  border-top: 1px dashed rgba(204, 170, 102, 0.5);
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns at this breakpoint */
+  }
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Product Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background-color: #f1e8b0;
+  width: 90%;
+  max-width: 900px;
+  height: 80%;
+  max-height: 600px;
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-image {
+  width: 50%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.modal-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.modal-description {
+  width: 50%;
+  padding: 30px;
+  overflow-y: auto;
+  background-color: #e6dfa5;
+}
+
+.modal-title {
+  color: #330000;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  border-bottom: 2px solid #ccaa66;
+  padding-bottom: 10px;
+}
+
+.modal-text {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.modal-note {
+  font-style: italic;
+  color: #8b6b2b;
+  border-top: 1px solid #ccaa66;
+  padding-top: 15px;
+}
+
+/* Add styling for price display in modal */
+.modal-price {
+  font-size: 1.2em;
+  color: #330000;
+  font-weight: bold;
+  margin: 20px 0;
+  padding: 10px 0;
+  border-top: 1px solid #ccaa66;
+  border-bottom: 1px solid #ccaa66;
+  text-align: center;
+  background-color: rgba(204, 170, 102, 0.2);
+  border-radius: 5px;
+}
+
+.price-value {
+  color: #8b6b2b;
+  font-size: 1.2em;
+  letter-spacing: 0.03em;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #330000;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(204, 170, 102, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  background-color: #ccaa66;
+  transform: scale(1.1);
+}
+
+/* Animation for modal */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal Navigation Buttons */
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(204, 170, 102, 0.7);
+  color: #ffffff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  line-height: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.modal-nav:hover {
+  background-color: rgba(204, 170, 102, 1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.modal-prev {
+  left: 10px;
+}
+
+.modal-next {
+  right: 10px;
+}
+
+/* Add subtle fade-in animation for modal navigation buttons */
+@keyframes navFadeIn {
+  from { opacity: 0; transform: translateY(-50%) scale(0.9); }
+  to { opacity: 1; transform: translateY(-50%) scale(1); }
+}
+
+.modal-nav {
+  animation: navFadeIn 0.3s ease forwards;
+}
+
+/* Jobs section styling */
+#jobs {
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Reduced from 20px */
+  padding: 1.3em; /* Added custom padding */
+
+}
+
+.jobs-logo {
+  width: 50px; /* Reduced from 80px */
+  height: 50px; /* Reduced from 80px */
+  margin: 0 15px 0 0; /* Reduced right margin */
+}
+
+.jobs-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.jobs-content {
+  background-color: rgba(230, 223, 165, 0.5);
+  border-radius: 8px;
+  padding: 17px; /* Reduced from 20px */
+  margin-bottom: 12px; /* Reduced from 20px */
+  border-left: 4px solid #ccaa66;
+}
+
+.jobs-content h3 {
+  margin: 10px 0 8px; /* Reduced from 20px 0 15px */
+  color: #8b6b2b;
+}
+
+.jobs-content p {
+  line-height: 1.3; /* Reduced from 1.5 */
+  margin-bottom: 15px; /* Reduced from 15px */
+  font-size: 0.95em; /* Slightly smaller text */
+}
+
+/* Application form styling */
+.application-form {
+  background-color: #e6dfa5;
+  padding: 15px; /* Reduced from 25px */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(51, 0, 0, 0.1);
+}
+
+.application-form fieldset {
+  border: 1px solid #ccaa66;
+  border-radius: 5px;
+  padding: 10px; /* Reduced from 15px */
+  margin-bottom: 12px; /* Reduced from 20px */
+}
+
+.application-form legend {
+  color: #8b6b2b;
+  font-weight: bold;
+  padding: 0 8px;
+  font-size: 0.9em; /* Smaller font */
+}
+
+.application-form label {
+  display: block;
+  margin-bottom: 6px; /* Reduced from 12px */
+}
+
+.application-form input[type="text"],
+.application-form input[type="email"],
+.application-form input[type="tel"] {
+  width: 100%;
+  padding: 6px 8px; /* Reduced from 10px */
+  border: 1px solid #ccaa66;
+  border-radius: 5px;
+  background-color: #f9f6df;
+  color: #330000;
+  font-family: Verdana, sans-serif;
+  height: 30px; /* Set explicit height for consistency */
+}
+
+/* Separate styling for select to make it larger */
+.application-form select {
+  width: 100%;
+  padding: 8px 10px; /* Increased padding */
+  border: 1px solid #ccaa66;
+  border-radius: 5px;
+  background-color: #f9f6df;
+  color: #330000;
+  font-family: Verdana, sans-serif;
+  height: 36px; /* Increased height from 30px */
+  font-size: 1.05em; /* Slightly larger font */
+  cursor: pointer;
+}
+
+/* Fix select element appearance across browsers */
+.application-form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%238b6b2b' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px; /* Space for the dropdown arrow */
+}
+
+/* Style for invalid input */
+.application-form input:invalid {
+  border-color: #cc6666;
+  background-color: #fff0f0;
+}
+
+/* Only show invalid style after user interaction */
+.application-form input:placeholder-shown:invalid {
+  border-color: #ccaa66;
+  background-color: #f9f6df;
+}
+
+/* Error message styling */
+.error-message {
+  color: #cc3333;
+  font-size: 0.8em;
+  margin-top: 2px;
+  display: none;
+}
+
+input:invalid + .error-message {
+  display: block;
+}
+
+.resume-upload {
+  position: relative;
+}
+
+.resume-upload label {
+  display: block;
+  background-color: #ccaa66;
+  color: #ffffff;
+  text-align: center;
+  padding: 8px; /* Reduced from 12px */
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.resume-upload input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.file-info {
+  text-align: center;
+  color: #8b6b2b;
+  font-size: 0.8em; /* Smaller text */
+  margin-top: 3px; /* Reduced from 5px */
+}
+
+.submit-button {
+  background-color: #8b6b2b;
+  color: #ffffff;
+  border: none;
+  padding: 8px 25px; /* Reduced from 12px 30px */
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px; /* Added small top margin */
+}
+
+/* Adjust heading size in jobs section */
+#jobs h2 {
+  font-size: 1.3em; /* Smaller heading */
+  margin: 0;
+}
+
+/* Tea decoration styling - using herb/leaf icon with complementary color */
+.tea-decor {
+  font-size: 0.75em; /* Slightly smaller for the herb icon */
+  vertical-align: middle;
+  color: #4a6741; /* Darker green that complements gold background */
+  margin: 0 8px;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+  opacity: 0.95;
+  display: inline-block; /* Ensures transform works properly */
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.15));
+}
+
+/* Gentle sway animation for the leaf */
+@keyframes leafSway {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.tea-decor {
+  animation: leafSway 3s ease-in-out infinite;
+}
+
+/* Optional: add subtle animation on page load */
+@keyframes steamFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.tea-decor {
+  animation: steamFloat 3s ease-in-out infinite;
+}
