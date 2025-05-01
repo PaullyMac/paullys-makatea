@@ -48,6 +48,7 @@ footer {
   position: relative;
   box-shadow: 0 -2px 8px rgba(51, 0, 0, 0.12);
   border-top: 1px solid rgba(255, 255, 255, 0.4);
+  z-index: 999 !important; /* High but lower than nav-logo */
 }
 
 footer p {
@@ -455,6 +456,8 @@ input[type="range"] {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   transition: all 0.3s ease;
+  position: relative; /* Ensure position is explicitly set */
+  z-index: 1000 !important; /* Very high z-index to ensure it stays on top */
 }
 
 .nav-logo img {
@@ -973,4 +976,813 @@ input:invalid + .error-message {
 #jobs h2 {
   font-size: 1.3em; /* Smaller heading */
   margin: 0;
+}
+
+/* Comprehensive Responsive Design Updates */
+
+/* Base mobile-first adjustments */
+@media (max-width: 1024px) {
+  #content {
+    flex-direction: column;
+  }
+  
+  nav {
+    width: 100%;
+    padding: 0.8em 0.5em;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+  }
+  
+  nav ul li {
+    margin: 0.3em;
+  }
+  
+  nav ul li a {
+    font-size: 1em;
+    padding: 0.5em 0.8em;
+  }
+  
+  .nav-logo {
+    margin: 0;
+    max-width: 150px;
+  }
+  
+  main {
+    width: 100%;
+    padding: 0.8em;
+    margin-bottom: 60px; /* Make room for the footer */
+  }
+  
+  body {
+    position: relative;
+    min-height: 100vh;
+    overflow-y: auto; /* Allow scrolling on the body */
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1em;
+    z-index: 100;
+    height: auto;
+  }
+  
+  /* Product grid adjustments */
+  .products-grid {
+    gap: 15px 10px;
+    padding: 5px 0 10px;
+  }
+  
+  .product-card {
+    padding: 15px;
+  }
+  
+  .product-card img {
+    max-height: 180px;
+    margin-bottom: 10px;
+  }
+  
+  /* Music player adjustments */
+  .music-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  #player-container {
+    min-width: 100%;
+  }
+  
+  #playlist-container {
+    min-width: 100%;
+  }
+  
+  /* Modal adjustments */
+  .modal-content {
+    flex-direction: column;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-image, .modal-description {
+    width: 100%;
+  }
+  
+  /* Ensure the home panels stack properly */
+  .home-panels {
+    flex-direction: column;
+  }
+  
+  .about-panel, .mission-panel, .contact-panel {
+    min-width: 100%;
+  }
+  
+  header {
+    padding: 1em;
+  }
+  
+  header h1 {
+    font-size: 1.8em;
+  }
+}
+
+/* Small tablets and large phones */
+@media (min-width: 600px) and (max-width: 767px) {
+  nav ul {
+    flex-wrap: nowrap;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .modal-content {
+    flex-direction: column;
+  }
+  
+  header h1 {
+    font-size: 2em;
+  }
+  
+  .intro-banner {
+    max-width: 90%;
+  }
+}
+
+/* iPads and small tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    overflow-y: auto;
+  }
+  
+  nav {
+    width: 100%;
+    padding: 1em;
+    flex-direction: row;
+    border-radius: 0;
+  }
+  
+  main {
+    width: 100%;
+    padding: 1em;
+  }
+  
+  .home-panels {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .about-panel, .mission-panel, .contact-panel {
+    min-width: calc(50% - 10px);
+  }
+  
+  .music-container {
+    flex-direction: row;
+  }
+  
+  /* Apply the iPad Air and iPad Pro optimization */
+  header h1 {
+    font-size: 2.2em;
+  }
+  
+  .modal-content {
+    flex-direction: row;
+  }
+  
+  .intro-banner {
+    max-width: 85%;
+  }
+  
+  /* Fixed footer for tablets */
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.2em;
+  }
+  
+  /* Add padding to main content to accommodate footer */
+  main {
+    margin-bottom: 70px;
+  }
+}
+
+/* Larger screens and desktop with responsive footer */
+@media (min-width: 1024px) {
+  /* Original desktop layout but with fixed footer */
+  body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  nav {
+    width: 20%;
+  }
+  
+  main {
+    width: 80%;
+    overflow-y: auto;
+  }
+  
+  footer {
+    width: 100%;
+    position: relative; /* Reset to normal flow */
+  }
+  
+  nav {
+    padding-bottom: 100px !important; /* Increase bottom padding */
+  }
+  
+  .nav-logo {
+    margin-bottom: 80px !important; /* Move logo up from bottom edge */
+  }
+}
+
+/* iPhone SE specific fixes (375x667) */
+@media (max-width: 375px) {
+  header h1 {
+    font-size: 1.6em;
+  }
+  
+  nav ul li a {
+    font-size: 0.9em;
+    padding: 0.4em 0.6em;
+  }
+  
+  footer {
+    padding: 0.8em;
+    font-size: 0.9em;
+  }
+  
+  .audio-controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .intro-banner {
+    max-width: 100%;
+    margin: 0.5em auto 1em;
+  }
+  
+  /* Ensure modal navigation buttons don't overlap content */
+  .modal-nav {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* Adjustments for application form */
+  .application-form fieldset {
+    padding: 8px;
+  }
+  
+  .submit-button {
+    padding: 6px 20px;
+  }
+}
+
+/* Fix scrollbar issues for Surface Pro 7 and similar devices */
+@media (min-width: 900px) and (max-width: 1200px) {
+  body {
+    overflow-y: auto;
+  }
+  
+  #content {
+    min-height: calc(100vh - 140px); /* Account for header and footer */
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  main {
+    margin-bottom: 70px;
+  }
+}
+
+/* Fix display style settings for sections */
+main > section {
+  display: none;
+  height: auto; /* Change from 100% to auto */
+  overflow-y: visible; /* Allow scrolling within sections */
+}
+
+/* Additional media query for very small screens */
+@media (max-width: 320px) {
+  header h1 {
+    font-size: 1.4em;
+  }
+  
+  nav {
+    padding: 0.6em 0.3em;
+  }
+  
+  nav ul li a {
+    font-size: 0.8em;
+    padding: 0.3em 0.5em;
+  }
+  
+  footer {
+    padding: 0.6em;
+    font-size: 0.8em;
+  }
+  
+  .product-card {
+    padding: 10px;
+  }
+  
+  .product-card img {
+    max-height: 150px;
+  }
+}
+
+/* Make sure section heights are correct when active */
+main > section.active {
+  display: block;
+  height: auto;
+  overflow-y: visible;
+}
+
+/* Enhanced Home Section Mobile Responsiveness */
+@media (max-width: 767px) {
+  /* Mobile-specific home section adjustments */
+  #home {
+    display: block;
+    padding: 0 8px;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+  
+  /* Smaller welcome heading for mobile */
+  #home h2 {
+    font-size: 2.2em;
+    margin: 0.3em 0;
+    padding: 0 5px;
+  }
+  
+  /* Adjust intro banner for mobile */
+  .intro-banner {
+    width: 100%;
+    max-width: 100%;
+    margin: 0.5em auto 1em;
+    padding: 0.8em;
+    box-sizing: border-box;
+  }
+  
+  .intro-banner h3 {
+    font-size: 1.3em;
+    margin-top: 0;
+  }
+  
+  .intro-banner p {
+    font-size: 0.95em;
+    margin-bottom: 0;
+  }
+  
+  /* Force home panels to stack vertically on mobile */
+  .home-panels {
+    display: block !important; /* Override inline style */
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Adjust individual panels for mobile */
+  .about-panel, .mission-panel, .contact-panel {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    margin: 0.8em 0;
+    box-sizing: border-box;
+    padding: 0.9em;
+  }
+  
+  /* Panel headings and content */
+  .about-panel h3, .mission-panel h3, .contact-panel h3 {
+    font-size: 1.2em;
+    margin: 0 0 0.5em 0;
+  }
+  
+  .about-panel p, .mission-panel p, .contact-panel p, .contact-panel address {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+}
+
+/* iPhone SE specific adjustments (smaller screen) */
+@media (max-width: 375px) {
+  #home h2 {
+    font-size: 1.9em;
+  }
+  
+  .intro-banner h3 {
+    font-size: 1.2em;
+  }
+  
+  .about-panel, .mission-panel, .contact-panel {
+    padding: 0.7em;
+  }
+  
+  .intro-banner {
+    padding: 0.6em;
+  }
+}
+
+/* Fix for inline styles that might be causing issues */
+@media (max-width: 767px) {
+  #home {
+    height: auto !important;
+    min-height: auto !important;
+  }
+  
+  main {
+    overflow-y: auto !important;
+    margin-bottom: 60px !important; /* Make room for footer */
+  }
+  
+  /* Ensure proper scrolling */
+  body, html {
+    overflow-x: hidden;
+  }
+}
+
+/* Fix for Responsive Layout Issues (1024-1200px range) */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  /* Prevent nav logo from being hidden behind fixed footer */
+  nav {
+    padding-bottom: 110px !important; /* Add extra padding at bottom of navigation */
+  }
+  
+  /* Ensure the nav logo stays visible */
+  .nav-logo {
+    margin-bottom: 90px !important; /* Move logo up from bottom edge */
+    position: relative; /* Ensure the logo appears above the footer */
+    z-index: 10; /* Higher z-index than footer */
+  }
+  
+  /* Make main content scrollable and adjust for fixed footer */
+  main {
+    overflow-y: auto !important; /* Force scrolling */
+    padding-bottom: 70px !important; /* Space for footer */
+    height: calc(100vh - 180px) !important; /* Adjust height accounting for header and footer */
+  }
+  
+  /* Fixed footer adjustments */
+  footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    z-index: 9; /* Lower than nav logo but still above content */
+  }
+  
+  /* Home section specific adjustments */
+  #home {
+    min-height: 0 !important; /* Allow it to be as tall as needed */
+    overflow-y: visible !important; /* Let parent handle scrolling */
+  }
+  
+  /* Make home panels more compact in this view */
+  .home-panels {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  /* Adjust panels for better fit */
+  .about-panel, .mission-panel, .contact-panel {
+    flex: 1 1 calc(33% - 15px);
+    min-width: 220px;
+    max-width: none;
+    margin-bottom: 10px;
+  }
+  
+  /* Make sure the header doesn't take too much vertical space */
+  header {
+    padding: 1em;
+  }
+  
+  /* Clear any floats and ensure content is visible */
+  #content {
+    overflow: hidden;
+  }
+}
+
+/* Additional fix for specifically 1184x756 dimension */
+@media (min-width: 1160px) and (max-width: 1190px) and (max-height: 770px) {
+  nav {
+    padding-bottom: 90px;
+  }
+  
+  .nav-logo {
+    margin-bottom: 75px;
+  }
+  
+  /* Make panels even more compact */
+  .home-panels {
+    gap: 10px;
+  }
+  
+  /* Reduce panel content size */
+  .about-panel p, .mission-panel p, .contact-panel p, .contact-panel address {
+    font-size: 0.9em;
+    line-height: 1.3;
+  }
+  
+  /* Make heading smaller */
+  #home h2 {
+    font-size: 2.5em;
+    margin: 0.2em 0;
+  }
+  
+  /* Make intro banner more compact */
+  .intro-banner {
+    padding: 0.7em;
+    margin: 0.5em auto 1em;
+  }
+}
+
+/* Improve scrolling behavior for all resolutions */
+@media (min-width: 320px) {
+  /* Force sections to be scrollable */
+  main {
+    overflow-y: auto !important;
+    height: auto !important;
+    max-height: calc(100vh - 140px) !important; /* Account for header/footer */
+  }
+  
+  /* Make active sections scrollable instead of just visible */
+  main > section.active {
+    overflow-y: visible !important;
+    height: auto !important;
+    min-height: 100% !important;
+    padding-bottom: 20px !important;
+  }
+  
+  /* Ensure content is visible by making it scrollable */
+  #home, #music, #products, #jobs {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+  }
+  
+  /* Force music container to wrap when needed */
+  .music-container {
+    flex-wrap: wrap !important;
+  }
+  
+  /* Audio player always visible */
+  .audio-player {
+    position: relative !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    display: block !important;
+  }
+  
+  /* Size constraints for video player */
+  #player-container {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  #video-player {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* Additional fixes for small to medium sized windows */
+@media (max-height: 700px), (max-width: 1200px) {
+  /* Ensure main content area is scrollable */
+  main {
+    overflow-y: auto !important;
+    height: auto !important;
+    max-height: calc(100vh - 140px) !important;
+  }
+  
+  /* Ensure home panels stack more efficiently when space is limited */
+  .home-panels {
+    gap: 10px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  /* Reduce whitespace to fit more on screen */
+  .about-panel, .mission-panel, .contact-panel {
+    padding: 0.9em !important;
+  }
+  
+  /* Ensure audio player is displayed with proper padding */
+  .audio-player {
+    margin-bottom: 60px !important; /* Add space for footer */
+  }
+}
+
+/* Fix for mid-size screens in flexible layouts */
+@media (min-width: 768px) and (max-width: 1200px) and (max-height: 800px) {
+  /* Enable scrolling on main content */
+  main {
+    overflow-y: auto !important;
+    height: auto !important;
+    max-height: calc(100vh - 120px) !important;
+    padding-bottom: 70px !important; /* Space for footer */
+  }
+  
+  /* Make sections fit better */
+  .home-panels, .music-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+  
+  /* Ensure audio controls are visible */
+  .audio-controls {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+}
+
+
+/* Fix for footer overlapping content in home section */
+@media (min-width: 320px) {
+  /* Increase bottom padding for all sections to accommodate footer */
+  main > section {
+    padding-bottom: 80px !important; /* Ensure enough space for footer */
+  }
+  
+  /* Fix specifically for the contact panel getting cut off */
+  .contact-panel {
+    margin-bottom: 15px !important;
+  }
+
+  /* Make sure the home panels are not cut off at the bottom */
+  .home-panels {
+    margin-bottom: 60px !important;
+    padding-bottom: 20px !important;
+  }
+  
+  /* Ensure proper scrolling for main area */
+  main {
+    overflow-y: auto !important;
+    max-height: calc(100vh - 140px) !important;
+    padding-bottom: 80px !important;
+  }
+}
+
+/* Specific fix for the desktop layout */
+@media (min-width: 1024px) {
+  /* Fix the footer at the bottom without overlapping */
+  footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    z-index: 10 !important;
+  }
+  
+  /* Ensure main area has proper padding to prevent overlap */
+  main {
+    padding-bottom: 100px !important;
+  }
+  
+  /* Make contact panel always visible */
+  .contact-panel {
+    padding-bottom: 15px !important;
+  }
+}
+
+/* Fix for the specific 1184x756 dimension */
+@media (min-width: 1160px) and (max-width: 1190px) and (max-height: 770px) {
+  /* Adjust heights to prevent overlap */
+  main {
+    max-height: calc(100vh - 160px) !important;
+    padding-bottom: 90px !important;
+  }
+  
+  /* Further increase bottom spacing */
+  .home-panels {
+    margin-bottom: 70px !important;
+  }
+  
+  /* Make panels more compact */
+  .about-panel, .mission-panel, .contact-panel {
+    padding: 0.8em !important;
+    margin-bottom: 5px !important;
+  }
+  
+  /* Make contact panel text smaller to fit better */
+  .contact-panel p {
+    margin-bottom: 5px !important;
+  }
+}
+
+/* Fix for nav-logo being overlapped by footer - add this at the end of your styles.css file */
+.nav-logo {
+  position: relative; /* Ensure position is explicitly set */
+  z-index: 1000 !important; /* Very high z-index to ensure it stays on top */
+}
+
+/* Adjust footer to have a lower z-index than the nav-logo */
+footer {
+  z-index: 999 !important; /* High but lower than nav-logo */
+}
+
+/* Add extra spacing at the bottom of the navigation to push logo up */
+@media (min-width: 1024px) {
+  nav {
+    padding-bottom: 100px !important; /* Increase bottom padding */
+  }
+  
+  .nav-logo {
+    margin-bottom: 80px !important; /* Move logo up from bottom edge */
+  }
+}
+
+/* Special fix for the specific size where the issue is occurring */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  nav {
+    padding-bottom: 110px !important; /* Even more padding for this size range */
+  }
+  
+  .nav-logo {
+    margin-bottom: 90px !important; /* More margin for this size range */
+  }
+}
+
+/* Enhanced scrolling for Home section to prevent footer overlap - add at end of your CSS */
+@media (min-width: 320px) {
+  /* Further improve home section bottom spacing */
+  #home {
+    padding-bottom: 120px !important; /* Extra padding to ensure content isn't cut off */
+  }
+  
+  /* Enhance bottom panel spacing */
+  .home-panels {
+    margin-bottom: 80px !important; /* Significantly increase bottom margin */
+    padding-bottom: 30px !important; /* Add padding at the bottom */
+  }
+  
+  /* Specifically target the contact panel which is getting cut off */
+  .contact-panel {
+    margin-bottom: 40px !important; /* Large margin to prevent footer overlap */
+  }
+  
+  /* Ensure consistent scrolling behavior like other sections */
+  #home.active {
+    overflow-y: auto !important; /* Force scrolling to be enabled */
+    height: auto !important; /* Auto height */
+    min-height: auto !important; /* Auto min height */
+  }
+}
+
+/* Additional desktop-specific adjustments */
+@media (min-width: 1024px) {
+  /* Even more padding for larger screens */
+  #home {
+    padding-bottom: 150px !important;
+  }
+  
+  /* Ensure home section has same scrolling behavior as products and music */
+  main > section#home.active {
+    overflow-y: auto !important; /* Explicitly force scrolling */
+    display: block !important;
+  }
+  
+  /* Further increase bottom spaces */
+  .home-panels {
+    margin-bottom: 100px !important;
+  }
+}
+
+/* Specific fixes for problematic viewport sizes */
+@media (min-width: 768px) and (max-width: 1200px) and (max-height: 800px) {
+  /* Increase footer clearance for this problematic size range */
+  #home {
+    padding-bottom: 180px !important;
+  }
+  
+  /* Ensure home section has consistent scrolling with other sections */
+  main > section#home.active {
+    height: auto !important;
+    min-height: 0 !important;
+  }
 }

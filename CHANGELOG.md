@@ -4,6 +4,22 @@
 This is the improved version of Paully's Maka-tea focused on enhanced responsive web design.
 All changes below this header represent improvements made on the responsive branch.
 
+## [3.1.0] - 2025-05-02
+
+### Added
+- Added enhanced scrolling capability for all sections, particularly the Home section
+- Added specific media queries targeting problematic viewport sizes (1184x756)
+- Added z-index prioritization system to prevent element overlap across devices
+
+### Changed
+- Fixed navigation logo being overlapped by footer in responsive layouts
+- Improved main content scrolling behavior across all device sizes
+- Enhanced bottom padding and margins to prevent content being cut off by footer
+- Applied consistent scrolling behavior between Home, Products and Music sections
+- Optimized contact panel visibility to ensure all contact information remains accessible
+- Increased bottom spacing in problematic viewport sizes
+- Refined padding and margin values for better content visibility on resize
+
 ## [3.0.0] - 2025-05-02
 
 ### Added

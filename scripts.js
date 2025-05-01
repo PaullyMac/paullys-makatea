@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hide all sections
     sections.forEach(section => {
       section.style.display = 'none';
+      section.classList.remove('active');
     });
     
     // Show active section (handle special case for menu)
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const activeSection = document.querySelector(targetSelector);
     if (activeSection) {
       activeSection.style.display = 'block';
+      activeSection.classList.add('active'); // Add active class
       
       // Apply background image to main element when home section is active
       const mainElement = document.querySelector('main');
@@ -57,6 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
         link.classList.remove('active');
       }
     });
+    
+    // On mobile, scroll to top when changing sections
+    if (window.innerWidth <= 1024) {
+      window.scrollTo(0, 0);
+    }
   }
   
   // Initial load
